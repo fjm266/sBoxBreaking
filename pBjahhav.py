@@ -1,8 +1,8 @@
 # Python Sandbox
 # Author: piyush.jadhav@nyu.edu
 # Description: This a sandbox that runs a restricted version of python. The resource
-#    usage is limited by the use of resource module in python.Additionally access to builtins
-#              is restricted to few whitelisted functions
+# usage is limited by the use of resource module in python.Additionally access to 
+# builtins is restricted to few whitelisted functions
 import resource
 
 # Resource Limit Constants
@@ -16,19 +16,20 @@ code = ""
 
 # Set Resource Limit
 resource.setrlimit(resource.RLIMIT_NOFILE, RESOURSCELIMIT_NOFILE)
-resource.setrlimit(resource.RLIMIT_NPROC, RESOURSCELIMIT_NOFILE)
-resource.setrlimit(resource.RLIMIT_AS, RESOURSCELIMIT_NOFILE)
-resource.setrlimit(resource.RLIMIT_DATA, RESOURSCELIMIT_NOFILE)
-resource.setrlimit(resource.RLIMIT_STACK, RESOURSCELIMIT_NOFILE)
+resource.setrlimit(resource.RLIMIT_NPROC, RESOURSCELIMIT_NPROC)
+resource.setrlimit(resource.RLIMIT_AS, RESOURSCELIMIT_AS)
+resource.setrlimit(resource.RLIMIT_DATA, RESOURSCELIMIT_DATA)
+resource.setrlimit(resource.RLIMIT_STACK, RESOURSCELIMIT_STACK)
 
 safe_builtins = {}
 
 # WhiteList
-for name in ['False', 'None', 'True', 'abs', 'basestring', 'bool', 'callable',
-             'chr', 'cmp', 'complex', 'divmod', 'float', 'hash',
-             'hex', 'id', 'int', 'isinstance', 'issubclass', 'len',
-             'long', 'oct', 'ord', 'pow', 'range', 'repr', 'round',
-             'str', 'tuple', 'unichr', 'unicode', 'xrange', 'zip']:
+list = ['False', 'None', 'True', 'abs', 'basestring', 'bool', 'callable',
+        'chr', 'cmp', 'complex', 'divmod', 'float', 'hash','hex', 'id', 
+        'int', 'isinstance', 'issubclass', 'len', 'long', 'oct', 'ord', 
+        'pow', 'range', 'repr', 'round', 'str', 'tuple', 'unichr', 
+        'unicode', 'xrange', 'zip', 'dir']
+for name in list:
     safe_builtins[name] = getattr(__builtins__, name)
 with open("program.input") as f:
     for line in f:

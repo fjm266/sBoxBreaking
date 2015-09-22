@@ -20,7 +20,7 @@ class Sandbox(object):
   #keyword whitelisting
     main=sys.modules["__main__"].__dict__
     orgbuiltins=main["__builtins__"].__dict__
-    whitelist = set(('ArithmeticError','AssertionError','AttributeError','ImportError','int','print','str','input','__import__','abs','all','set' ))
+    whitelist = set(('dir','ArithmeticError','AssertionError','AttributeError','ImportError','int','print','str','input','__import__','abs','all','set' ))
 
     for builtin in orgbuiltins.keys():
       if builtin not in whitelist:

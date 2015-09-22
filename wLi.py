@@ -1,18 +1,18 @@
 import sys
 
 try:
-  if !sys.argv[1].endswith(".py"):
+  if not sys.argv[1].endswith(".py"):
     print "Sandbox only supports .py files"
-exit(1)
+    exit(1)
 
-code = open(sys.argv[1], 'r').read()
+  code = open(sys.argv[1], 'r').read()
 
 #blacklist all python reserved words except: [and, break, continue, elif, else, for, if, in, is, not, or, print, while]
-blacklist_reserved = ['as', 'assert', 'class', 'def', 'del', 'except', 'exec', 'finally', 'from', 'global', 'import', 'lambda', 'pass', 'raise', 'return', 'try', 'with', 'yield', '.', '_']
-for word in blacklist_reserved:
-  if word in code:
-    print "Reserved word " + word + " is not allowed."
-  exit(1)
+  blacklist_reserved = ['as', 'assert', 'class', 'def', 'del', 'except', 'exec', 'finally', 'from', 'global', 'import', 'lambda', 'pass', 'raise', 'return', 'try', 'with', 'yield', '.', '_']
+  for word in blacklist_reserved:
+    if word in code:
+      print "Reserved word " + word + " is not allowed."
+      exit(1)
   
   custom_globals = {}
   custom_locals = {}

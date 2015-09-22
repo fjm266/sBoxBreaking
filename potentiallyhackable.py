@@ -11,7 +11,7 @@ def safecall(programdata):
       print 'Error, cannot have "'+badstring+'" in program.'
       sys.exit(1)
 
-  newbuiltins = {'None':None, 'False':False, 'True':True, 'range':range, '__builtins__':None, 'safecall':safecall}
+  newbuiltins = {'dir':dir, 'None':None, 'False':False, 'True':True, 'range':range, '__builtins__':None, 'safecall':safecall}
 
   exec programdata in newbuiltins
 

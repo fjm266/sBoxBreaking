@@ -46,7 +46,6 @@ if (num_arg) == 2:
   pass
 else:
   raise Exception("Only 2 Arguments Allowed")
-exit(1)
 
 filename = argv[1]
 

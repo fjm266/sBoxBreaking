@@ -1,0 +1,2 @@
+secret = input()
+print secret
